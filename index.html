@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <title>Hangman</title>
 </head>
@@ -11,16 +12,116 @@
     <div class = 'name'>  
         <h1> HANGMAN GAME </h1>
     </div>
-    <div class = 'strikes'>
-        <h2> STRIKES: _ _ _ _ _ _ _</h2>
-    </div>
-    <div class = 'word'>
-        <h2> WORD: _ _ _ _ _ _ </h2>
-    </div>    
+    <div class = 'flex-container'>
+        <h2>STRIKES:</h2>
+        <div class = 'underline'>
+            <h2>A</h2> 
+            <h2>A</h2> 
+            <h2>A</h2>
+            <h2>A</h2> 
+            <h2>A</h2> 
+            <h2>A</h2>
+        </div>
+        <h2 class = 'word'>WORD:</h2>
+        <div class = 'underline'>
+            <h2>A</h2>
+            <h2>A</h2>
+            <h2>A</h2>
+            <h2>A</h2> 
+            <h2>A</h2> 
+            <h2>A</h2>
+        </div>
+    </div>  
     <div class = 'letters'>
-        <p> A B C D E F G H I </p>
-        <p> J K L M N O P Q R </p>
-        <p> S T U V W X Y Z </p>
+        <header class = 'container'>
+            <div class = 'row'>
+                <div class = 'col-sm'>
+                    <p>A</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>B</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>C</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>D</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>E</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>F</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>G</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>H</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>I</p>
+                </div>
+            </div>
+            <div class = 'row'>
+                <div class = 'col-sm'>
+                    <p>J</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>K</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>L</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>M</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>N</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>O</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>P</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>Q</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>R</p>
+                </div>
+            </div>
+            <div class = 'row'>
+                <div class = 'col-sm'>
+                    <p>S</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>T</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>U</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>V</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>W</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>X</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>Y</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p>Z</p>
+                </div>
+                <div class = 'col-sm'>
+                    <p></p>
+                </div>
+            </div>
+        </header>
     </div>
 </body>
 </html>

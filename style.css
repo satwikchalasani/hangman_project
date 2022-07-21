@@ -1,4 +1,55 @@
+ * {
+    background-color: white;
+ }
+
 .name {
     text-align: center;
-    
+    color: black;
 }
+
+/* .strikes {
+    float: left;
+}
+
+.word {
+    float: right;
+} */
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    position: relative;
+    top: 50px;
+    left: 50px;
+    text-align: center;
+    color: black;
+    /* width: 50px; */
+}
+
+.word {
+    margin-left: 200px;
+}
+.container {
+    position: relative;
+    top: 175px;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+}
+
+.underline {
+    /* border-bottom: 1px solid black; */
+    /* color: white; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+
+.underline > h2 {
+    margin: 0px 15px;
+    text-decoration: underline;
+    width: 50px;
+}
+
+
