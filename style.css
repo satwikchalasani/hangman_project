@@ -52,4 +52,7 @@
     width: 50px;
 }
 
-
+#message
+{
+    display: none;
+}
