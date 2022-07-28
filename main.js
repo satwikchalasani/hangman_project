@@ -12,7 +12,7 @@ function findRandom()
 // Calling random index function
 findRandom();
 //Populating random word from array
-let word = wordBank[random];
+let word = wordBank[random].toUpperCase();
 // Creating h2 variables
 let h2;
 let h2_part2;
@@ -22,7 +22,8 @@ for (let i = 0; i < word.length; i++)
 {
     h2 = document.createElement('h2');
     h2.appendChild(document.createTextNode(word[i]));
-    h2.style.display = "none";
+    h2.style.visibility = "hidden";
+    // h2.style.textDecoration = "underline";
     wordHTML.appendChild(h2);
 }
 // Adding strikes to website
@@ -32,59 +33,86 @@ for (let i = 0; i < strikeWord.length; i++)
 {
     h2_part2 = document.createElement('h2');
     h2_part2.appendChild(document.createTextNode(strikeWord[i]));
-    h2_part2.style.display = "none";
+    h2_part2.style.visibility = "hidden";
     strikes.appendChild(h2_part2);
 }
 // Adding an event listener to listen for a click on the letters
-let letters = document.getElementsByClass('col-sm');
-letters.addEventListener('click', letterClick);
+let letters = document.getElementsByTagName('p');
+for (let i = 0; i < letters.length; i++)
+{
+    letters[i].addEventListener('click', letterClick);
+}
+// Making list of letters in word
+let elements_in_word = document.querySelectorAll('#word > h2');
+let letters_in_word = [];
+for (let i = 0; i < elements_in_word.length; i++)
+{
+    letters_in_word[i] = elements_in_word[i].textContent;
+    // console.log(letters_in_word);
+}
+// console.log(letters_in_word);
+let elements_in_strike = document.querySelectorAll('#strikes > h2');
+let letters_in_strike = [];
+for (let i = 0; i < elements_in_strike.length; i++)
+{
+    letters_in_strike[i] = elements_in_strike[i].textContent;
+}
 // Handling the click on the letter
+let j = 0;
 function letterClick(e)
 {
-    for (let i = 0; i < word.length; i++)
+    // Check if letter clicked is in inside word
+    if (letters_in_word.includes(e.target.textContent))
     {
-        if (e.target.value == word[i])
+        console.log("Within");
+        for (let i = 0; i < letters_in_word.length; i++)
         {
-            e.target.style.textDecoration = "line-through";
-            e.target.style.textDecorationColor = "red";
-            h2.style.display = "visible";
+            if (e.target.textContent == letters_in_word[i])
+            {
+                e.target.style.textDecoration = "line-through";
+                e.target.style.textDecorationColor = "green";
+                console.log("Correct");
+                elements_in_word[i].style.visibility = "visible";
+            }
         }
-        else
-        {
-            e.target.style.textDecoration = "line-through";
-            e.target.style.textDecorationColor = "red";
-            h2_part2.style.display = "visible";
-        }
+    }
+    else
+    {
+        e.target.style.textDecoration = "line-through";
+        e.target.style.textDecorationColor = "red";
+        console.log("Incorrect");
+        elements_in_strike[j].style.visibility = "visible";
+        j++;
     }
 }
 // Making box variable
 let box = document.getElementById('message');
 // Checking if word is shown
 let all_wordletters_seen = 0;
-for (let i = 0; i < word.length; i++)
+for (let i = 0; i < elements_in_word.length; i++)
 {
-    if (h2.style.display == "visible")
+    if (elements_in_word[i].style.display == "visible")
     {
-        all_letters_seen++;
+        all_wordletters_seen++;
     }
 }
 // Checking if strikes is shown
 let all_strikeletters_seen = 0;
-for (let i = 0; i < strikeWord.length; i++)
+for (let i = 0; i < elements_in_strike.length; i++)
 {
-    if (h2_part2.style.display == "visible")
+    if (elements_in_strike[i].style.display == "visible")
     {
         all_strikeletters_seen++;
     }
 }
 // Displaying congratulatory message
-if (all_letters_seen == word.length)
+if (all_wordletters_seen == letters_in_word.length)
 {
     box.style.display = "visible";
     box.appendChild(document.createTextNode("Congratulations! You have guessed all the letters correctly!"));
 }
 // Displaying losing message
-if (all_strikeletters_seen == strikeWord.length)
+if (all_strikeletters_seen == letters_in_strike.length)
 {
     box.style.display = "visible";
     box.appendChild(document.createTextNode("You Lost! You have run out of guesses:("));
