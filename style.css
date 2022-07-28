@@ -54,5 +54,12 @@
 
 #message
 {
-    display: none;
+    /* display: none; */
+    background-color: lightgray;
+    position: relative;
+    z-index: 2;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 35px;
 }

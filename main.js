@@ -58,21 +58,31 @@ for (let i = 0; i < elements_in_strike.length; i++)
     letters_in_strike[i] = elements_in_strike[i].textContent;
 }
 // Handling the click on the letter
+// Counter for indexing through strikes
 let j = 0;
+// Making box variable
+let box = document.getElementById('message');
+box.style.display = "none";
+// Checking if word is shown
+let all_wordletters_seen = 0;
+// Checking if strikes is shown
+let all_strikeletters_seen = 0;
 function letterClick(e)
 {
     // Check if letter clicked is in inside word
     if (letters_in_word.includes(e.target.textContent))
     {
-        console.log("Within");
+        // console.log("Within");
         for (let i = 0; i < letters_in_word.length; i++)
         {
             if (e.target.textContent == letters_in_word[i])
             {
                 e.target.style.textDecoration = "line-through";
                 e.target.style.textDecorationColor = "green";
-                console.log("Correct");
+                // console.log("Correct");
                 elements_in_word[i].style.visibility = "visible";
+                all_wordletters_seen++;
+                // console.log(all_wordletters_seen);
             }
         }
     }
@@ -80,40 +90,40 @@ function letterClick(e)
     {
         e.target.style.textDecoration = "line-through";
         e.target.style.textDecorationColor = "red";
-        console.log("Incorrect");
+        // console.log("Incorrect");
         elements_in_strike[j].style.visibility = "visible";
         j++;
-    }
-}
-// Making box variable
-let box = document.getElementById('message');
-// Checking if word is shown
-let all_wordletters_seen = 0;
-for (let i = 0; i < elements_in_word.length; i++)
-{
-    if (elements_in_word[i].style.display == "visible")
-    {
-        all_wordletters_seen++;
-    }
-}
-// Checking if strikes is shown
-let all_strikeletters_seen = 0;
-for (let i = 0; i < elements_in_strike.length; i++)
-{
-    if (elements_in_strike[i].style.display == "visible")
-    {
         all_strikeletters_seen++;
+        // console.log(all_strikeletters_seen);
+    }
+    // console.log(letters_in_word.length);
+    // Displaying congratulatory message
+    if (all_wordletters_seen == letters_in_word.length)
+    {
+        box.style.display = "flex";
+        box.appendChild(document.createTextNode("Congratulations! You have guessed all the letters correctly!"));
+        // console.log("Inside");
+    }
+    // Displaying losing message
+    if (all_strikeletters_seen == letters_in_strike.length)
+    {
+        box.style.display = "flex";
+        box.appendChild(document.createTextNode("You Lost! You have run out of guesses:("));
+        // console.log("Insidew2");
     }
 }
-// Displaying congratulatory message
-if (all_wordletters_seen == letters_in_word.length)
-{
-    box.style.display = "visible";
-    box.appendChild(document.createTextNode("Congratulations! You have guessed all the letters correctly!"));
-}
-// Displaying losing message
-if (all_strikeletters_seen == letters_in_strike.length)
-{
-    box.style.display = "visible";
-    box.appendChild(document.createTextNode("You Lost! You have run out of guesses:("));
-}
+// for (let i = 0; i < elements_in_word.length; i++)
+// {
+//     if (elements_in_word[i].style.visible == "visible")
+//     {
+//         all_wordletters_seen++;
+//     }
+// }
+
+// for (let i = 0; i < elements_in_strike.length; i++)
+// {
+//     if (elements_in_strike[i].style.visibility == "visible")
+//     {
+//         all_strikeletters_seen++;
+//     }
+// }
