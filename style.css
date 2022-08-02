@@ -1,0 +1,86 @@
+ * {
+    background-color: white;
+    /* width: 100%; */
+    padding: 0px;
+    margin: 0px;
+ }
+
+body {
+    /* padding: 0px 20px; */
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.name {
+    text-align: center;
+    color: black;
+}
+
+/* .strikes {
+    float: left;
+}
+
+.word {
+    float: right;
+} */
+
+.flex-container {
+    display: flex;
+    margin-top: 50px;
+    margin-left: 30px;
+    /* flex-direction: row; */
+    /* justify-content: space-around; */
+    /* position: relative;
+    top: 50px; */
+    /* left: 50px; */
+    /* text-align: center;
+    color: black; */
+    /* width: 50px; */
+}
+
+.word {
+    /* margin-left: 200px; */
+    margin-bottom: 0px;
+}
+
+.strikes {
+    margin-bottom: 0px;
+}
+.container {
+    position: relative;
+    top: 100px;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+}
+
+.underline {
+    /* border-bottom: 1px solid black; */
+    /* color: white; */
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+
+.underline > h2 {
+    margin: 0px 15px;
+    /* text-decoration: underline; */
+    width: 1.25em;
+    border-bottom: 2px solid black;
+    text-align: center;
+
+}
+
+#message
+{
+    /* display: none; */
+    background-color: lightgray;
+    position: relative;
+    z-index: 2;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 35px;
+    left: 300px;
+    bottom: 50px;
+}
