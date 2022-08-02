@@ -113,7 +113,7 @@ function letterClick(e)
     if (all_strikeletters_seen === letters_in_strike.length)
     {
         box.style.display = "flex";
-        box.appendChild(document.createTextNode("You Lost! You have run out of guesses:("));
+        box.appendChild(document.createTextNode("You Lost! You have run out of guesses:( The correct word is " + word));
         for (let i = 0; i < letters.length; i++)
         {
             letters[i].removeEventListener('click', letterClick);
