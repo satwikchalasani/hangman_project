@@ -22,7 +22,8 @@ for (let i = 0; i < word.length; i++)
 {
     h2 = document.createElement('h2');
     h2.appendChild(document.createTextNode(word[i]));
-    h2.style.visibility = "hidden";
+    // h2.style.visibility = "hidden";
+    h2.style.color = "transparent";
     wordHTML.appendChild(h2);
 }
 // Adding strikes to website
@@ -32,7 +33,8 @@ for (let i = 0; i < strikeWord.length; i++)
 {
     h2_part2 = document.createElement('h2');
     h2_part2.appendChild(document.createTextNode(strikeWord[i]));
-    h2_part2.style.visibility = "hidden";
+    // h2_part2.style.visibility = "hidden";
+    h2_part2.style.color = "transparent";
     strikes.appendChild(h2_part2);
 }
 // Making list of letters in word
@@ -72,12 +74,13 @@ function letterClick(e)
     {
         for (let i = 0; i < letters_in_word.length; i++)
         {
-            if (e.target.textContent == letters_in_word[i])
+            if (e.target.textContent === letters_in_word[i])
             {
                 e.target.style.textDecoration = "line-through";
                 e.target.style.textDecorationColor = "green";
-                elements_in_word[i].style.visibility = "visible";
+                elements_in_word[i].style.color = "black";
                 all_wordletters_seen++;
+                // console.log(all_wordletters_seen);
             }
         }
     }
@@ -85,13 +88,20 @@ function letterClick(e)
     {
         e.target.style.textDecoration = "line-through";
         e.target.style.textDecorationColor = "red";
-        elements_in_strike[j].style.visibility = "visible";
+        elements_in_strike[j].style.color = "black";
         j++;
         all_strikeletters_seen++;
     }
-    // Displaying congratulatory message
-    if (all_wordletters_seen == letters_in_word.length)
+    // Removing eventlistener for letters already clicked
+    if (e.target.style.textDecoration.includes("line-through"))
     {
+        console.log(4);
+        e.target.removeEventListener('click', letterClick);
+    }
+    // Displaying congratulatory message
+    if (all_wordletters_seen === letters_in_word.length)
+    {
+        console.log(all_wordletters_seen);
         box.style.display = "flex";
         box.appendChild(document.createTextNode("Congratulations! You have guessed all the letters correctly!"));
         for (let i = 0; i < letters.length; i++)
@@ -100,7 +110,7 @@ function letterClick(e)
         }
     }
     // Displaying losing message
-    if (all_strikeletters_seen == letters_in_strike.length)
+    if (all_strikeletters_seen === letters_in_strike.length)
     {
         box.style.display = "flex";
         box.appendChild(document.createTextNode("You Lost! You have run out of guesses:("));
